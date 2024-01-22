@@ -67,6 +67,15 @@ def find_by_lastname(phone_book, last_name):
                     print(i)
 
 
+def change_number(phone_book, last_name, new_number):
+    with open('phon.txt', 'w', encoding='utf-8') as phout:
+        family = last_name
+        for i in phone_book:
+            for j in i.values():
+                if j == family:
+                    phout.write(f'{new_number[:-1]}\n')
+
+
 
 # def user_data(phone_book):
 #     last_name = input("Введите фамилию: ")
