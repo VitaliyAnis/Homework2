@@ -8,7 +8,7 @@ def work_with_phonebook():
         if choice == 1:
             print(show_phonebook(phone_book))
         elif choice == 2:
-            last_name = input('lastname ')
+            last_name = input('Введите фаминию абонента: ')
             print(find_by_lastname(phone_book, last_name))
         elif choice == 3:
             last_name = input('lastname ')
@@ -57,6 +57,14 @@ def read_txt(filename):
 
     return phone_book
 
+
+def find_by_lastname(phone_book, last_name):
+    for i in phone_book["Last_name:"]:
+        if i == last_name:
+            print("пав")
+
+
+
 # def user_data(phone_book):
 #     last_name = input("Введите фамилию: ")
 #     first_name = input("Введите имя: ")
@@ -95,10 +103,10 @@ def write_txt(filename, phone_book):
 def show_phonebook(phone_book):
     print("\nВесь справочник:")
     for entry in phone_book:
-        print("Фамилия:", entry["Last_name"])
-        print("Имя:", entry["First_name"])
-        print("Номер телефона:", entry["Number"])
-        print("Описание:", entry["description"])
+        print("Last_name:", entry["Last_name"])
+        print("Name", entry["First_name"])
+        print("Number:", entry["Number"])
+        print("Description:", entry["description"])
         print("----------------------")
 
 
