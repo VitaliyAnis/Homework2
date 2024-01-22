@@ -59,9 +59,12 @@ def read_txt(filename):
 
 
 def find_by_lastname(phone_book, last_name):
-    for i in phone_book["Last_name:"]:
-        if i == last_name:
-            print("пав")
+    with open('phon.txt', 'r', encoding='utf-8') as phout:
+        family = last_name
+        for i in phone_book:
+            for j in i.values():
+                if j == family:
+                    print(i)
 
 
 
