@@ -21,7 +21,8 @@ def work_with_phonebook():
             number = input('number ')
             print(find_by_number(phone_book, number))
         elif choice == 6:
-            user_data = input('new data ')
+            # user_data = input("Введите фамилию: ") + input("Введите имя: ") + input("Введите номер телефона: ") + input("Введите описание: ")
+            user_data = input("Введите данные абонента: ")
             add_user(phone_book, user_data)
             write_txt('phon.txt', phone_book)
 
@@ -33,10 +34,11 @@ def show_menu():
     print("\nВыберите необходимое действие:\n"
           "1. Отобразить весь справочник\n"
           "2. Найти абонента по фамилии\n"
-          "3. Найти абонента по номеру телефона\n"
-          "4. Добавить абонента в справочник\n"
-          "5. Сохранить справочник в текстовом формате\n"
-          "6. Закончить работу")
+          "3. Изменить номер абонента по фамилии\n"
+          "4. Удалить абонента по фамилии\n"
+          "5. Найти абонента по номеру телефона\n"
+          "6. Добавить абонента в справочник\n"
+          "7. Закончить работу")
     choice = int(input())
     return choice
 
@@ -55,6 +57,28 @@ def read_txt(filename):
 
     return phone_book
 
+# def user_data(phone_book):
+#     last_name = input("Введите фамилию: ")
+#     first_name = input("Введите имя: ")
+#     number = input("Введите номер телефона: ")
+#     opisanie = input("Введите описание абонента: ")
+#
+#     return new_user_data
+
+
+def add_user(phone_book, user_data):
+    fields = ['Last_name', 'First_name', 'Number', 'description']
+
+    user_values = user_data.split(',')
+
+
+    if len(user_values) == len(fields):
+        # Введенные данные содержат правильное количество полей
+        record = dict(zip(fields, user_values))
+        phone_book.append(record)
+        print("Пользователь успешно добавлен.")
+    else:
+        print("Некорректные данные. Пожалуйста, введите все необходимые поля.")
 
 def write_txt(filename, phone_book):
 
